@@ -86,11 +86,11 @@
 
 <template>
     <div v-if="state.state == 0">
-        <h1>Quests for the Questgods!</h1>
-        <p>Go on a Quest and collect items as offering to the Questgods!</p>
+        <h1>Quests for the Quest Gods!</h1>
+        <p>Go on a Quest and collect items as offering to the Quest Gods!</p>
         <p>Look for the requested item and scan the code!</p>
         <p>Collect as many items as possible within the given time!</p>
-        <p>Compare yourself to others and find the Questgod's favorite!</p>
+        <p>Compare yourself to others and find the Quest God's favorite!</p>
         <button @click="startQuest">Start Quest</button>
     </div>
     <div v-if="state.state == 1">
