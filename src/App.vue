@@ -87,19 +87,24 @@
 <template>
     <div v-if="state.state == 0">
         <h1>Quests for the Questgods!</h1>
-        <p>Collect as many quest items as possible to offer them to the Questgods!</p>
+        <p>Go on a Quest and collect items as offering to the Questgods!</p>
+        <p>Look for the requested item and scan the code!</p>
+        <p>Collect as many items as possible within the given time!</p>
+        <p>Compare yourself to others and find the Questgod's favorite!</p>
         <button @click="startQuest">Start Quest</button>
     </div>
     <div v-if="state.state == 1">
         <h2>Questing!</h2>
-        <p><span>You have </span><span>{{timer.minutes}}</span>:<span>{{timer.seconds}}</span><span> left.</span></p>
-        <p>You've quested {{ state.score }} items.</p>
-        <p>Your next quest item is <strong>{{state.current}}</strong></p>
+        <p><span>Time left: </span><strong>{{timer.minutes}}:{{timer.seconds}}</strong><span></span></p>
+        <p>Items collected: <strong>{{ state.score }}</strong></p>
+        <p>Your next quest item is:<br><br>
+            <strong class="big">{{state.current}}</strong></p>
         <form @submit="checkIfCorrect" ><input type="text" name="item" autofocus v-model="state.guess" /></form>
+        <p><small>(Make sure input field is in focus when scanning)</small></p>
     </div>
     <div v-if="state.state == 2">
         <h2>Your quest is over!</h2>
-        <p>You offered {{ state.score }} items to the quest gods.</p>
+        <p>You've collected <strong>{{ state.score }}</strong> items to offer to the quest gods.</p>
         <button @click="restartQuest()">New Quest</button>
     </div>
 </template>
@@ -124,6 +129,9 @@
  button:hover,
  button:active {
      background-color: black;
+ }
+ .big {
+     font-size: 1.3em;
  }
 
 </style>
