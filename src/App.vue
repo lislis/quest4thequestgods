@@ -48,6 +48,7 @@
          restartQuest() {
              this.time = new Date();
              this.time.setSeconds(this.time.getSeconds() + 180);
+             this.timer = useTimer(this.time, false);
 
              this.state.state = 0;
              this.state.score = 0;
@@ -72,7 +73,6 @@
          "timer.isExpired": {
              handler(mew, old) {
                  if (mew) {
-
                      this.state.state = 2;
                  }
                  //console.log(newTitle)
